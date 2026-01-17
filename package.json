@@ -1,10 +1,36 @@
 {
-  "name": "queries",
-  "private": true,
+  "name": "skillsync",
+  "version": "1.0.0",
+  "description": "Sync AI skills to Cursor, Claude, Codex and more",
+  "type": "module",
+  "bin": {
+    "skills": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
-    "skills": "npx tsx skills-sync/sync.ts",
-    "skills:fetch": "npm run skills fetch --",
-    "skills:sync": "npm run skills sync",
-    "skills:status": "npm run skills status"
+    "build": "tsc",
+    "dev": "npx tsx src/cli.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "ai",
+    "skills",
+    "claude",
+    "cursor",
+    "codex",
+    "anthropic",
+    "sync"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
