@@ -1,0 +1,10 @@
+{
+  "name": "queries",
+  "private": true,
+  "scripts": {
+    "skills": "npx tsx skills-sync/sync.ts",
+    "skills:fetch": "npm run skills fetch --",
+    "skills:sync": "npm run skills sync",
+    "skills:status": "npm run skills status"
+  }
+}
