@@ -2,9 +2,9 @@
  * Init command - initialize config
  */
 import { stat } from "node:fs/promises";
-import { readConfig, ensureConfigDir } from "../lib/config.js";
-import { CONFIG_FILE, CONFIG_DIR, KNOWN_TARGETS } from "../lib/paths.js";
-import { green, dim, bold } from "../lib/colors.js";
+import { readConfig } from "../lib/config.js";
+import { CONFIG_FILE, CONFIG_DIR } from "../lib/paths.js";
+import { dim, bold } from "../lib/colors.js";
 
 async function exists(path: string): Promise<boolean> {
   try {
@@ -35,7 +35,7 @@ export async function init(): Promise<void> {
   console.log(dim("  • vercel-labs/agent-skills\n"));
 
   console.log("Default targets:");
-  console.log(dim("  • cursor, claude, codex, antigravity\n"));
+  console.log(dim("  • cursor, claude, copilot, codex\n"));
 
   console.log(bold("Next steps:"));
   console.log(dim("  skills fetch    # Download skills"));

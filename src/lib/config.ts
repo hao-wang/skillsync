@@ -3,7 +3,7 @@
  */
 import { readFile, writeFile, mkdir, stat } from "node:fs/promises";
 import { CONFIG_DIR, CONFIG_FILE, STORE_DIR, KNOWN_TARGETS, expandPath } from "./paths.js";
-import { Config, Source, Target, DEFAULT_CONFIG } from "./types.js";
+import { Config, DEFAULT_CONFIG } from "./types.js";
 
 // Check if path exists
 async function exists(path: string): Promise<boolean> {
@@ -34,6 +34,7 @@ export async function readConfig(): Promise<Config> {
         claude: { path: KNOWN_TARGETS.claude, enabled: true },
         codex: { path: KNOWN_TARGETS.codex, enabled: true },
         antigravity: { path: KNOWN_TARGETS.antigravity, enabled: true },
+        copilot: { path: KNOWN_TARGETS.copilot, enabled: true },
       },
     };
     await writeConfig(config);

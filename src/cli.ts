@@ -18,7 +18,7 @@ const VERSION = "1.0.0";
 
 function printHelp(): void {
   console.log(`
-${bold("skillsync")} - Sync AI skills to various tools
+${bold("skillsync")} - Sync Agent Skills to various tools
 
 ${bold("Usage:")}
   skills <command> [options]

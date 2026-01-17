@@ -2,31 +2,31 @@
 
 > [English](./README.md)
 
-同步 AI skills 到 Antigravity、Codex、Claude Code、Cursor 等工具。
+同步 Agent Skills 到 Antigravity、Codex、Claude Code、Cursor 等工具。
 
 ## 快速开始
 
 ```bash
 # 1. 从 Git 获取 skills
-npm run skills fetch
+skills fetch
 
-# 2. 同步到所有启用的目标
-npm run skills sync
+# 2. 同步到所有启用的目标工具
+skills sync
 
 # 3. 查看状态
-npm run skills status
+skills status
 ```
 
-## 命令
+## 命令列表
 
 | 命令 | 说明 |
 |------|------|
-| `npm run skills fetch` | 从 Git 获取/更新所有 skills |
-| `npm run skills fetch -- anthropics/skills` | 获取指定源 |
-| `npm run skills sync` | 同步到所有启用的目标 |
-| `npm run skills status` | 查看同步状态 |
-| `npm run skills ls` | 列出所有 skills |
-| `npm run skills config` | 显示配置 |
+| `skills fetch` | 获取/更新所有 skills |
+| `skills fetch -- anthropics/skills` | 获取指定源 |
+| `skills sync` | 同步到所有启用的目标 |
+| `skills status` | 查看同步状态 |
+| `skills list` | 列出所有 skills |
+| `skills config` | 显示当前配置 |
 
 **向后兼容:**
 - `npm run skills:fetch` 仍然可用
@@ -35,9 +35,17 @@ npm run skills status
 
 ## 配置
 
-编辑 `skills-sync/config.ts` 来修改配置：
+配置文件位置：`~/.skillsync/config.json`。你可以通过命令行管理，或手动编辑。
 
 ### 添加新的 Skills 源
+
+```bash
+skills source add owner/repo
+# 或
+skills source add https://github.com/owner/repo
+```
+
+手动编辑 `config.json`：
 
 ```typescript
 sources: {
@@ -91,11 +99,11 @@ targets: {
 - ✅ Codex (`~/.codex/skills/`)
 - ✅ Claude (`~/.claude/skills/`)
 - ✅ Cursor (`~/.cursor/skills/`)
+- ✅ Copilot (`~/.copilot/skills/`)
 
-### 禁用的目标
+### 已禁用目标
 
 - Gemini (`~/.gemini/skills/`)
-- VS Code / Copilot (`~/.copilot/skills/`)
 - Windsurf (`~/.windsurf/skills/`)
 
 ## 依赖

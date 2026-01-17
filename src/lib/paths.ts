@@ -16,7 +16,7 @@ export const KNOWN_TARGETS: Record<string, string> = {
   codex: join(HOME, ".codex", "skills"),
   antigravity: join(HOME, ".gemini", "antigravity", "skills"),
   gemini: join(HOME, ".gemini", "skills"),
-  vscode: join(HOME, ".copilot", "skills"),
+  copilot: join(HOME, ".copilot", "skills"),
   windsurf: join(HOME, ".windsurf", "skills"),
 };
 

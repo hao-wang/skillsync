@@ -2,31 +2,31 @@
 
 > [中文文档](./README.zh-CN.md)
 
-Sync AI skills to Antigravity, Codex, Claude Code, Cursor and other tools.
+Sync **Agent Skills** to **Cursor**, **Claude**, **Codex**, and more.
 
 ## Quick Start
 
 ```bash
 # 1. Fetch skills from Git
-npm run skills fetch
+skills fetch
 
 # 2. Sync to all enabled targets
-npm run skills sync
+skills sync
 
 # 3. View status
-npm run skills status
+skills status
 ```
 
 ## Commands
 
 | Command | Description |
 |---------|-------------|
-| `npm run skills fetch` | Fetch/update all skills from Git |
-| `npm run skills fetch -- anthropics/skills` | Fetch specific source |
-| `npm run skills sync` | Sync to all enabled targets |
-| `npm run skills status` | View sync status |
-| `npm run skills ls` | List all skills |
-| `npm run skills config` | Show configuration |
+| `skills fetch` | Fetch/update all skills from Git |
+| `skills fetch -- anthropics/skills` | Fetch specific source |
+| `skills sync` | Sync to all enabled targets |
+| `skills status` | View sync status |
+| `skills list` | List all skills |
+| `skills config` | Show configuration |
 
 **Backward compatible:**
 - `npm run skills:fetch` still works
@@ -35,9 +35,17 @@ npm run skills status
 
 ## Configuration
 
-Edit `skills-sync/config.ts` to modify settings:
+Configuration is stored in `~/.skillsync/config.json`. You can manage it via CLI commands or edit it manually.
 
 ### Add New Skills Source
+
+```bash
+skills source add owner/repo
+# or
+skills source add https://github.com/owner/repo
+```
+
+Manually in `config.json`:
 
 ```typescript
 sources: {
@@ -91,11 +99,11 @@ targets: {
 - ✅ Codex (`~/.codex/skills/`)
 - ✅ Claude (`~/.claude/skills/`)
 - ✅ Cursor (`~/.cursor/skills/`)
+- ✅ Copilot (`~/.copilot/skills/`)
 
 ### Disabled Targets
 
 - Gemini (`~/.gemini/skills/`)
-- VS Code / Copilot (`~/.copilot/skills/`)
 - Windsurf (`~/.windsurf/skills/`)
 
 ## Dependencies

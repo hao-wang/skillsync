@@ -23,7 +23,6 @@ function parseYamlFrontmatter(content: string): Record<string, any> {
 
   // Simple YAML parser for our use case
   const lines = yaml.split('\n');
-  let currentKey = '';
   let inMetadata = false;
 
   for (const line of lines) {
