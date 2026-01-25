@@ -51,7 +51,7 @@ skillsync fetch
 | `skillsync push` | Push to all enabled targets |
 | `skillsync sync` | (deprecated) Use 'push' instead |
 | `skillsync status` | View sync status |
-| `skillsync list` | List all skills |
+| `skillsync list [filter]` | List skills (optional: filter by source) |
 | `skillsync config` | Show configuration |
 | `skillsync source add <path>` | Add a new skills source |
 | `skillsync source remove <path>` | Remove a skills source |

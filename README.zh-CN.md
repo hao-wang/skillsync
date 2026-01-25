@@ -37,7 +37,7 @@ skillsync fetch
 | `skillsync push` | 推送到所有启用的目标 |
 | `skillsync sync` | (已弃用) 请使用 'push' |
 | `skillsync status` | 查看同步状态 |
-| `skillsync list` | 列出所有 skills |
+| `skillsync list [filter]` | 列出所有 skills (可选：按源过滤) |
 | `skillsync config` | 显示当前配置 |
 
 ## 配置

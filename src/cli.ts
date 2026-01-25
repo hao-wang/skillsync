@@ -45,7 +45,7 @@ ${bold("Commands:")}
   fetch [source]     Fetch skills from Git
   push               Push to all enabled targets
   status             View sync status
-  ls, list           List all skills
+  ls, list [filter]    List all skills (optional: filter by source)
   config             Show configuration
 
   source             Manage skill sources
@@ -98,7 +98,7 @@ async function main(): Promise<void> {
         break;
       case "ls":
       case "list":
-        await list();
+        await list(args[1]);
         break;
       case "config":
         await showConfig();

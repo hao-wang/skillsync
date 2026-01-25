@@ -17,7 +17,7 @@ async function exists(path: string): Promise<boolean> {
   }
 }
 
-export async function list(): Promise<void> {
+export async function list(filter?: string): Promise<void> {
   const config = await readConfig();
 
   console.log(bold("\nSkills\n"));
@@ -30,6 +30,11 @@ export async function list(): Promise<void> {
   }> = [];
 
   for (const [name, source] of Object.entries(config.sources)) {
+    // Filter by name if provided
+    if (filter && !name.toLowerCase().includes(filter.toLowerCase())) {
+      continue;
+    }
+
     const sourceDir = join(STORE_DIR, name);
     const sourceExists = await exists(sourceDir);
 
