@@ -42,7 +42,7 @@ ${bold("Usage:")}
 
 ${bold("Commands:")}
   init               Initialize config (~/.skillsync/)
-  fetch [source]     Fetch skills from Git (options: --yes)
+  fetch [source]     Fetch skills from Git (options: --yes, -y)
   push               Push to all enabled targets
   status             View sync status
   ls, list [filter]    List all skills (optional: filter by source)
@@ -86,8 +86,9 @@ async function main(): Promise<void> {
       case "fetch":
         {
           const fetchArgs = args.slice(1);
-          const yes = fetchArgs.includes("--yes");
-          const source = fetchArgs.find((arg) => arg !== "--yes");
+          const yesFlags = new Set(["--yes", "-y"]);
+          const yes = fetchArgs.some((arg) => yesFlags.has(arg));
+          const source = fetchArgs.find((arg) => !yesFlags.has(arg));
           await fetch(source, { yes });
         }
         break;

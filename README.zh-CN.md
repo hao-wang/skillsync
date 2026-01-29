@@ -35,6 +35,7 @@ skillsync fetch
 | `skillsync fetch` | 获取/更新所有 skills |
 | `skillsync fetch <source>` | 获取指定源 |
 | `skillsync fetch --yes` | 自动覆盖本地冲突 |
+| `skillsync fetch -y` | `--yes` 的短别名 |
 | `skillsync push` | 推送到所有启用的目标 |
 | `skillsync sync` | (已弃用) 请使用 'push' |
 | `skillsync status` | 查看同步状态 |
@@ -74,7 +75,7 @@ skillsync source add /absolute/path/to/skills
 
 > **注意**：两个 "for all" 选项仅影响冲突的 skills。没有冲突的新 skills 始终会被复制。
 >
-> **提示**：可使用 `skillsync fetch --yes` 自动覆盖所有冲突，避免交互提示。
+> **提示**：可使用 `skillsync fetch --yes`（或 `-y`）自动覆盖所有冲突，避免交互提示。
 
 > ⚠️ **重要**: 如果 skills 在仓库的子目录中（如 [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills) 的 skills 在 `skills/` 目录下），需要配置 `subdir: "skills"`，否则AI 工具无法识别 skills。
 

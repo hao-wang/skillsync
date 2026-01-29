@@ -49,6 +49,7 @@ skillsync fetch
 | `skillsync fetch` | Fetch/update all skills from sources |
 | `skillsync fetch <source>` | Fetch specific source |
 | `skillsync fetch --yes` | Auto-overwrite conflicts for local sources |
+| `skillsync fetch -y` | Short alias for `--yes` |
 | `skillsync push` | Push to all enabled targets |
 | `skillsync sync` | (deprecated) Use 'push' instead |
 | `skillsync status` | View sync status |
@@ -91,7 +92,7 @@ Any subdirectories in the path will be treated as individual skills and copied t
 
 > **Note**: Both "for all" options only affect conflicting skills. New skills without conflicts are always copied.
 >
-> **Tip**: Use `skillsync fetch --yes` to auto-overwrite all conflicts without prompting.
+> **Tip**: Use `skillsync fetch --yes` (or `-y`) to auto-overwrite all conflicts without prompting.
 
 > ⚠️ **Important**: If skills are in a subdirectory of the repository (e.g., `vercel-labs/agent-skills` has skills in `skills/` directory), you **must** configure `subdir: "skills"`, otherwise the synced content will be incorrect and AI tools won't recognize the skills.
 
