@@ -75,7 +75,15 @@ async function fetchRemoteSource(
   }
 }
 
-async function fetchLocalSource(name: string, source: Source): Promise<void> {
+type FetchOptions = {
+  yes?: boolean;
+};
+
+async function fetchLocalSource(
+  name: string,
+  source: Source,
+  options?: FetchOptions
+): Promise<void> {
   if (!source.localPath) {
     console.log(
       `  ${dim("○")} ${name.padEnd(30)} ${dim("no local path")}`
@@ -105,7 +113,8 @@ async function fetchLocalSource(name: string, source: Source): Promise<void> {
 
     let copied = 0;
     let skipped = 0;
-    let conflictResolution: ConflictResolution | null = null;
+    let conflictResolution: ConflictResolution | null =
+      options?.yes ? "yes-all" : null;
 
     for (const skill of skills) {
       const skillName = skill.name;
@@ -172,7 +181,10 @@ async function fetchLocalSource(name: string, source: Source): Promise<void> {
   }
 }
 
-export async function fetch(sourceName?: string): Promise<void> {
+export async function fetch(
+  sourceName?: string,
+  options?: FetchOptions
+): Promise<void> {
   const config = await readConfig();
 
   const sources = sourceName
@@ -194,7 +206,7 @@ export async function fetch(sourceName?: string): Promise<void> {
     }
 
     if (isLocalSource(source)) {
-      await fetchLocalSource(name, source);
+      await fetchLocalSource(name, source, options);
     } else {
       await fetchRemoteSource(name, source);
     }
